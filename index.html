@@ -81,7 +81,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">3</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">1</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">6</span></a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">1</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">3</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">8</span></a></li>
   </ul>
 </nav>
 
@@ -126,18 +126,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-count">8</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">1</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -180,7 +180,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://bystander85.github.io/2022/05/20/ubuntu-add-Nodejs/">
+    <link itemprop="mainEntityOfPage" href="https://bystander85.github.io/2022/05/20/ubuntu-chage-hostname/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -198,7 +198,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/05/20/ubuntu-add-Nodejs/" class="post-title-link" itemprop="url">Ubuntu安装nodejs</a>
+          <a href="/2022/05/20/ubuntu-chage-hostname/" class="post-title-link" itemprop="url">更改 Ubuntu 20.04 上的主机名</a>
         </h2>
 
         <div class="post-meta-container">
@@ -209,14 +209,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2022-05-20 18:05:22" itemprop="dateCreated datePublished" datetime="2022-05-20T18:05:22+08:00">2022-05-20</time>
+      <time title="创建时间：2022-05-20 18:05:24" itemprop="dateCreated datePublished" datetime="2022-05-20T18:05:24+08:00">2022-05-20</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-05-22 14:56:03" itemprop="dateModified" datetime="2022-05-22T14:56:03+08:00">2022-05-22</time>
+      <time title="修改时间：2022-05-23 13:42:39" itemprop="dateModified" datetime="2022-05-23T13:42:39+08:00">2022-05-23</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -224,7 +224,7 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%95%99%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">教程</span></a>
+          <a href="/categories/Ubuntu/" itemprop="url" rel="index"><span itemprop="name">Ubuntu</span></a>
         </span>
     </span>
 
@@ -238,10 +238,104 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h3 id="一、下载nodejs"><a href="#一、下载nodejs" class="headerlink" title="一、下载nodejs"></a>一、下载nodejs</h3><h4 id="1-查看ubuntu系统位数（备注：x86-64表示64位系统，-i686-i386表示32位系统）"><a href="#1-查看ubuntu系统位数（备注：x86-64表示64位系统，-i686-i386表示32位系统）" class="headerlink" title="1.查看ubuntu系统位数（备注：x86_64表示64位系统， i686 i386表示32位系统）"></a>1.查看ubuntu系统位数（备注：x86_64表示64位系统， i686 i386表示32位系统）</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">uname</span> -a</span><br></pre></td></tr></table></figure>
+          <h3 id="了解主机名"><a href="#了解主机名" class="headerlink" title="了解主机名"></a>了解主机名</h3><p>主机名是标识网络上设备的标签。不应在同一网络上使用两台或多台具有相同主机名的计算机。<br>建议使用完全限定的域名 （FQDN ） ，例如 两者和名称。host.example.comstatictransient<br>只有 root或具有 sudo 权限的用户才能更改系统主机名。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2022/05/20/ubuntu-add-Nodejs/#more" rel="contents">
+              <a class="btn" href="/2022/05/20/ubuntu-chage-hostname/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://bystander85.github.io/2022/05/20/ubuntu_plill/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Bystander">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bystander's Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Bystander's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/05/20/ubuntu_plill/" class="post-title-link" itemprop="url">Ubuntu终止进程的方法</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-05-20 18:05:23" itemprop="dateCreated datePublished" datetime="2022-05-20T18:05:23+08:00">2022-05-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-05-23 13:36:33" itemprop="dateModified" datetime="2022-05-23T13:36:33+08:00">2022-05-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Ubuntu/" itemprop="url" rel="index"><span itemprop="name">Ubuntu</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>在ubuntu中，终止一个进程或终止一个正在运行的程序，一般是通过 kill 、killall、pkill、xkill 等进行。<br>先看两个例子：</p>
+<h5 id="例子一：结束某个程序，如Firefox"><a href="#例子一：结束某个程序，如Firefox" class="headerlink" title="例子一：结束某个程序，如Firefox"></a>例子一：结束某个程序，如Firefox</h5><p>键入命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pkill firefox</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/05/20/ubuntu_plill/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -308,7 +402,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-05-22 14:56:03" itemprop="dateModified" datetime="2022-05-22T14:56:03+08:00">2022-05-22</time>
+      <time title="修改时间：2022-05-23 13:36:33" itemprop="dateModified" datetime="2022-05-23T13:36:33+08:00">2022-05-23</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -316,7 +410,7 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%95%99%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">教程</span></a>
+          <a href="/categories/Ubuntu/" itemprop="url" rel="index"><span itemprop="name">Ubuntu</span></a>
         </span>
     </span>
 
@@ -334,6 +428,196 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2022/05/20/ubuntu-add-yarn/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://bystander85.github.io/2022/05/20/Hexo-next-edit/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Bystander">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bystander's Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Bystander's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/05/20/Hexo-next-edit/" class="post-title-link" itemprop="url">Hexo【next】主题设置</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-05-20 18:05:21" itemprop="dateCreated datePublished" datetime="2022-05-20T18:05:21+08:00">2022-05-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-05-23 13:36:33" itemprop="dateModified" datetime="2022-05-23T13:36:33+08:00">2022-05-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Hexo/" itemprop="url" rel="index"><span itemprop="name">Hexo</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <blockquote class="blockquote-center">
+<p><a target="_blank" rel="noopener" href="https://theme-next.iissnan.com/">官方设置教程</a> </p>
+
+</blockquote>
+
+<h3 id="编辑菜单栏"><a href="#编辑菜单栏" class="headerlink" title="编辑菜单栏"></a>编辑菜单栏</h3><p>编辑主题配置文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /home/ubuntu/hexo/themes/next/_config.yml</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/05/20/Hexo-next-edit/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://bystander85.github.io/2022/05/20/ubuntu-add-Nodejs/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Bystander">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bystander's Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Bystander's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/05/20/ubuntu-add-Nodejs/" class="post-title-link" itemprop="url">Ubuntu安装nodejs</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-05-20 18:05:21" itemprop="dateCreated datePublished" datetime="2022-05-20T18:05:21+08:00">2022-05-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-05-23 13:36:33" itemprop="dateModified" datetime="2022-05-23T13:36:33+08:00">2022-05-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Ubuntu/" itemprop="url" rel="index"><span itemprop="name">Ubuntu</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="一、下载nodejs"><a href="#一、下载nodejs" class="headerlink" title="一、下载nodejs"></a>一、下载nodejs</h3><h4 id="1-查看ubuntu系统位数（备注：x86-64表示64位系统，-i686-i386表示32位系统）"><a href="#1-查看ubuntu系统位数（备注：x86-64表示64位系统，-i686-i386表示32位系统）" class="headerlink" title="1.查看ubuntu系统位数（备注：x86_64表示64位系统， i686 i386表示32位系统）"></a>1.查看ubuntu系统位数（备注：x86_64表示64位系统， i686 i386表示32位系统）</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">uname</span> -a</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/05/20/ubuntu-add-Nodejs/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -400,7 +684,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-05-22 14:56:03" itemprop="dateModified" datetime="2022-05-22T14:56:03+08:00">2022-05-22</time>
+      <time title="修改时间：2022-05-23 13:36:33" itemprop="dateModified" datetime="2022-05-23T13:36:33+08:00">2022-05-23</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -408,7 +692,7 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%95%99%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">教程</span></a>
+          <a href="/categories/Git/" itemprop="url" rel="index"><span itemprop="name">Git</span></a>
         </span>
     </span>
 
@@ -497,7 +781,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-05-22 15:03:31" itemprop="dateModified" datetime="2022-05-22T15:03:31+08:00">2022-05-22</time>
+      <time title="修改时间：2022-05-23 13:36:33" itemprop="dateModified" datetime="2022-05-23T13:36:33+08:00">2022-05-23</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -505,7 +789,7 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%95%99%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">教程</span></a>
+          <a href="/categories/Hexo/" itemprop="url" rel="index"><span itemprop="name">Hexo</span></a>
         </span>
     </span>
 
@@ -524,104 +808,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2022/05/20/Hexo-Tutorial/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://bystander85.github.io/2022/05/20/Hexo-next-edit/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Bystander">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Bystander's Blog">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Bystander's Blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/05/20/Hexo-next-edit/" class="post-title-link" itemprop="url">Hexo【next】主题设置</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-05-20 18:05:20" itemprop="dateCreated datePublished" datetime="2022-05-20T18:05:20+08:00">2022-05-20</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-05-22 14:56:03" itemprop="dateModified" datetime="2022-05-22T14:56:03+08:00">2022-05-22</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%95%99%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">教程</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <blockquote class="blockquote-center">
-<p><a target="_blank" rel="noopener" href="https://theme-next.iissnan.com/">官方设置教程</a> </p>
-
-</blockquote>
-
-<h3 id="编辑菜单栏"><a href="#编辑菜单栏" class="headerlink" title="编辑菜单栏"></a>编辑菜单栏</h3><p>编辑主题配置文件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /home/ubuntu/hexo/themes/next/_config.yml</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/05/20/Hexo-next-edit/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -688,7 +874,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-05-22 14:56:03" itemprop="dateModified" datetime="2022-05-22T14:56:03+08:00">2022-05-22</time>
+      <time title="修改时间：2022-05-23 13:36:33" itemprop="dateModified" datetime="2022-05-23T13:36:33+08:00">2022-05-23</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -696,7 +882,7 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%95%99%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">教程</span></a>
+          <a href="/categories/Ubuntu/" itemprop="url" rel="index"><span itemprop="name">Ubuntu</span></a>
         </span>
     </span>
 
