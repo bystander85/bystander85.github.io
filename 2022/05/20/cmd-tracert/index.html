@@ -20,27 +20,28 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"bystander85.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta property="og:type" content="website">
-<meta property="og:title" content="标签">
-<meta property="og:url" content="https://bystander85.github.io/tags/index.html">
+    <meta name="description" content="tracert是一个路由跟踪命令，用于确定 IP 数据包访问目标所采取的网络路径，在大型网络排查问题中起到一定的作用。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="tracert用法">
+<meta property="og:url" content="https://bystander85.github.io/2022/05/20/cmd-tracert/index.html">
 <meta property="og:site_name" content="Bystander&#39;s Blog">
+<meta property="og:description" content="tracert是一个路由跟踪命令，用于确定 IP 数据包访问目标所采取的网络路径，在大型网络排查问题中起到一定的作用。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-05-21T17:14:15.000Z">
-<meta property="article:modified_time" content="2022-05-21T17:39:16.371Z">
+<meta property="article:published_time" content="2022-05-20T10:05:20.000Z">
+<meta property="article:modified_time" content="2022-05-24T12:14:37.094Z">
 <meta property="article:author" content="Bystander">
-<meta property="article:tag" content="hexo,crypto,ubuntu,web3js,git,nodejs,yarn">
+<meta property="article:tag" content="小技巧">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://bystander85.github.io/tags/">
+<link rel="canonical" href="https://bystander85.github.io/2022/05/20/cmd-tracert/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"zh-CN","comments":true,"permalink":"https://bystander85.github.io/tags/index.html","path":"tags/index.html","title":"标签"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://bystander85.github.io/2022/05/20/cmd-tracert/","path":"2022/05/20/cmd-tracert/","title":"tracert用法"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>标签 | Bystander's Blog
-</title>
+<title>tracert用法 | Bystander's Blog</title>
   
 
 
@@ -173,41 +174,121 @@
 </noscript>
 
 
-    <div class="main-inner page posts-expand">
+    <div class="main-inner post posts-expand">
 
 
-    
-    
-    
-    <div class="post-block" lang="zh-CN"><header class="post-header">
+  
 
-<h1 class="post-title" itemprop="name headline">标签
-</h1>
 
-<div class="post-meta-container">
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://bystander85.github.io/2022/05/20/cmd-tracert/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Bystander">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bystander's Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="tracert用法 | Bystander's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          tracert用法
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-05-20 18:05:20" itemprop="dateCreated datePublished" datetime="2022-05-20T18:05:20+08:00">2022-05-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-05-24 20:14:37" itemprop="dateModified" datetime="2022-05-24T20:14:37+08:00">2022-05-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/cmd/" itemprop="url" rel="index"><span itemprop="name">cmd</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
 </div>
 
-</header>
+        </div>
+      </header>
 
-      
-      
-      <div class="post-body"><div class="tag-cloud">
-  <div class="tag-cloud-title">
-    目前共计 2 个标签
-  </div>
-  <div class="tag-cloud-tags">
-    <a href="/tags/%E5%B0%8F%E6%8A%80%E5%B7%A7/" style="font-size: 12px;" class="tag-cloud-0">小技巧</a> <a href="/tags/%E6%95%99%E7%A8%8B/" style="font-size: 30px;" class="tag-cloud-10">教程</a>
-  </div>
-</div>
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>tracert是一个路由跟踪命令，用于确定 IP 数据包访问目标所采取的网络路径，在大型网络排查问题中起到一定的作用。</p>
+<span id="more"></span>
+<p>tracert命令常用在哪里？<br>利用tracert命令，我们可以查看网络中的走向也可以查看网络经过的节点与节点之间存在的延迟。在大型网络中存在很多节点设备来连接不同的上网设置。错综复杂的网络我们就需要用到tracert来分析网络中的问题。</p>
+<p>比如下面这台IP为192.168.113.138的主机上网很慢， 我们可以通过</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tracert www.baidu.com</span><br></pre></td></tr></table></figure>
+<p>这条命令查看下网络的走向。</p>
 
-      </div>
-      
-      
-      
     </div>
 
     
     
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%B0%8F%E6%8A%80%E5%B7%A7/" rel="tag"># 小技巧</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/05/20/ubuntu-Tutorial/" rel="prev" title="Ubuntu使用技巧">
+                  <i class="fa fa-chevron-left"></i> Ubuntu使用技巧
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/05/20/Hexo-Tutorial/" rel="next" title="安装Hexo并发布到Github">
+                  安装Hexo并发布到Github <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
 
 
 </div>

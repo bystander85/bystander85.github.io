@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.2">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"bystander85.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="本文转载自： https:&#x2F;&#x2F;help.aliyun.com&#x2F;document_detail&#x2F;404852.html#section-6mh-x4f-l0n     Nginx是一款小巧而高效的Web服务器软件，可帮您在Linux系统下快速方便地搭建出LNMP Web服务环境。本文介绍如何手动在ECS实例上搭建LNMP环境，其中LNMP分别代表Linux、Nginx、MySQL和PHP">
+<meta property="og:type" content="website">
+<meta property="og:title" content="手动部署LNMP环境（Ubuntu 20.04）">
+<meta property="og:url" content="https://bystander85.github.io/private/LNMP-ubuntu.html">
+<meta property="og:site_name" content="Bystander&#39;s Blog">
+<meta property="og:description" content="本文转载自： https:&#x2F;&#x2F;help.aliyun.com&#x2F;document_detail&#x2F;404852.html#section-6mh-x4f-l0n     Nginx是一款小巧而高效的Web服务器软件，可帮您在Linux系统下快速方便地搭建出LNMP Web服务环境。本文介绍如何手动在ECS实例上搭建LNMP环境，其中LNMP分别代表Linux、Nginx、MySQL和PHP">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://bystander85.github.io/images/LNMP-ubuntu-5.1.png">
+<meta property="og:image" content="https://bystander85.github.io/images/LNMP-ubuntu-5.2.png">
+<meta property="og:image" content="https://bystander85.github.io/images/LNMP-ubuntu-6.1.png">
+<meta property="og:image" content="https://bystander85.github.io/images/LNMP-ubuntu-7.1.png">
+<meta property="og:image" content="https://bystander85.github.io/images/LNMP-ubuntu-8.1.png">
+<meta property="article:published_time" content="2022-05-21T10:05:20.000Z">
+<meta property="article:modified_time" content="2022-05-24T12:48:46.479Z">
+<meta property="article:author" content="Bystander">
+<meta property="article:tag" content="教程">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://bystander85.github.io/images/LNMP-ubuntu-5.1.png">
+
+
+<link rel="canonical" href="https://bystander85.github.io/private/LNMP-ubuntu">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"zh-CN","comments":true,"permalink":"https://bystander85.github.io/private/LNMP-ubuntu.html","path":"private/LNMP-ubuntu.html","title":"手动部署LNMP环境（Ubuntu 20.04）"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>手动部署LNMP环境（Ubuntu 20.04） | Bystander's Blog
+</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Bystander's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">2</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">5</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">11</span></a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E6%8F%90%E6%9D%A1%E4%BB%B6"><span class="nav-number">1.</span> <span class="nav-text">前提条件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%83%8C%E6%99%AF%E4%BF%A1%E6%81%AF"><span class="nav-number">2.</span> <span class="nav-text">背景信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4%E4%B8%80%EF%BC%9A%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="nav-number">3.</span> <span class="nav-text">步骤一：准备工作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4%E4%BA%8C%EF%BC%9A%E5%AE%89%E8%A3%85Nginx"><span class="nav-number">4.</span> <span class="nav-text">步骤二：安装Nginx</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4%E4%B8%89%EF%BC%9A%E5%AE%89%E8%A3%85MySQL"><span class="nav-number">5.</span> <span class="nav-text">步骤三：安装MySQL</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4%E5%9B%9B%EF%BC%9A%E5%AE%89%E8%A3%85PHP"><span class="nav-number">6.</span> <span class="nav-text">步骤四：安装PHP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4%E4%BA%94%EF%BC%9A%E9%85%8D%E7%BD%AENginx"><span class="nav-number">7.</span> <span class="nav-text">步骤五：配置Nginx</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4%E5%85%AD%EF%BC%9A%E9%85%8D%E7%BD%AEMySQL"><span class="nav-number">8.</span> <span class="nav-text">步骤六：配置MySQL</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4%E4%B8%83%EF%BC%9A%E9%85%8D%E7%BD%AEPHP"><span class="nav-number">9.</span> <span class="nav-text">步骤七：配置PHP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4%E5%85%AB%EF%BC%9A%E6%B5%8B%E8%AF%95%E8%AE%BF%E9%97%AEPHP%E9%85%8D%E7%BD%AE%E4%BF%A1%E6%81%AF%E9%A1%B5%E9%9D%A2"><span class="nav-number">10.</span> <span class="nav-text">步骤八：测试访问PHP配置信息页面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%8E%E7%BB%AD%E6%AD%A5%E9%AA%A4"><span class="nav-number">11.</span> <span class="nav-text">后续步骤</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Bystander"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">Bystander</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/bystander85" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;bystander85" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner page posts-expand">
+
+
+    
+    
+    
+    <div class="post-block" lang="zh-CN"><header class="post-header">
+
+<h1 class="post-title" itemprop="name headline">手动部署LNMP环境（Ubuntu 20.04）
+</h1>
+
+<div class="post-meta-container">
+</div>
+
+</header>
+
+      
+      
+      <div class="post-body">
+          <blockquote class="blockquote-center">
+<p>本文转载自：<a target="_blank" rel="noopener" href="https://help.aliyun.com/document_detail/404852.html#section-6mh-x4f-l0n"> https://help.aliyun.com/document_detail&#x2F;404852.html#section-6mh-x4f-l0n </a> </p>
+
+</blockquote>
+<p>Nginx是一款小巧而高效的Web服务器软件，可帮您在Linux系统下快速方便地搭建出LNMP Web服务环境。本文介绍如何手动在ECS实例上搭建LNMP环境，其中LNMP分别代表Linux、Nginx、MySQL和PHP。</p>
+<span id="more"></span>
+
+<h2 id="前提条件"><a href="#前提条件" class="headerlink" title="前提条件"></a>前提条件</h2><ul>
+<li>已创建ECS实例并为实例分配了公网IP。具体操作，请参见使用向导创建实例。<br>本教程中，创建的ECS实例配置说明如下。建议您与教程保持一致的操作系统版本，避免因版本问题导致的命令执行报错。<ul>
+<li>实例规格：ecs.c6.large</li>
+<li>操作系统：Ubuntu 20.04</li>
+<li>网络类型：专有网络VPC</li>
+<li>IP地址：公网IP</li>
+</ul>
+</li>
+<li>已在实例所属的安全组的入方向添加安全组规格并放行22、80、443端口。具体操作，请参见添加安全组规则。</li>
+</ul>
+<blockquote>
+<p>说明 基于服务器数据安全考虑，本教程仅说明部署与测试LNMP环境所必须放行的端口，您可以根据实际需求，放行其他应用所需的端口号。例如，远程连接MySQL数据库时，需要放行MySQL默认占用的3306端口。</p>
+</blockquote>
+<h2 id="背景信息"><a href="#背景信息" class="headerlink" title="背景信息"></a>背景信息</h2><ul>
+<li><p>本教程适用于熟悉Linux操作系统，刚开始使用阿里云进行建站的个人用户。</p>
+</li>
+<li><p>本教程的示例操作中，使用的软件及软件版本信息如下：</p>
+<ul>
+<li>Nginx：1.18.0</li>
+<li>MySQL：8.0.27</li>
+<li>PHP：7.4.3</li>
+</ul>
+</li>
+</ul>
+<h2 id="步骤一：准备工作"><a href="#步骤一：准备工作" class="headerlink" title="步骤一：准备工作"></a>步骤一：准备工作</h2><ol>
+<li>远程连接需要部署LNMP环境的ECS实例。<br>具体操作，请参见连接方式概述。</li>
+<li>关闭系统内部防火墙。<ul>
+<li>2.1 运行以下命令，检查防火墙当前状态。 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw status</span><br></pre></td></tr></table></figure>
+-如果防火墙状态为<code>Status: inactive</code>，则表示防火墙为关闭状态。<br>-如果防火墙状态为<code>Status: active</code>，则表示防火墙为开启状态。</li>
+<li>2.2 可选：关闭防火墙。<br>如果您的防火墙为开启状态，需要运行以下命令，关闭防火墙并关闭开机自启动防火墙。<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw disable</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>说明 如果您想重新开启防火墙并开启开机自启动防火墙，请运行<code>sudo ufw enable</code>命令。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="步骤二：安装Nginx"><a href="#步骤二：安装Nginx" class="headerlink" title="步骤二：安装Nginx"></a>步骤二：安装Nginx</h2><ol>
+<li>运行以下命令，更新Ubuntu系统内的软件包。<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br></pre></td></tr></table></figure></li>
+<li>运行以下命令，安装Nginx。<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt -y install nginx</span><br></pre></td></tr></table></figure></li>
+<li>运行以下命令，查看Nginx版本。<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nginx -v</span><br></pre></td></tr></table></figure>
+返回结果如下所示，查看到Nginx的版本信息为1.18.0。同时也表示Nginx已成功安装。<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nginx version: nginx/1.18.0 (Ubuntu)</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="步骤三：安装MySQL"><a href="#步骤三：安装MySQL" class="headerlink" title="步骤三：安装MySQL"></a>步骤三：安装MySQL</h2><ol>
+<li>运行以下命令，安装MySQL。<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt -y install mysql-server</span><br></pre></td></tr></table></figure></li>
+<li>运行以下命令，查看MySQL版本。<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mysql -V</span><br></pre></td></tr></table></figure>
+返回结果如下所示，查看到MySQL的版本为8.0.27。同时也表示MySQL已成功安装。<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql  Ver 8.0.27-0ubuntu0.20.04.1 for Linux on x86_64 ((Ubuntu))</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="步骤四：安装PHP"><a href="#步骤四：安装PHP" class="headerlink" title="步骤四：安装PHP"></a>步骤四：安装PHP</h2><ol>
+<li>运行以下命令，安装PHP。<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt -y install php-fpm</span><br></pre></td></tr></table></figure></li>
+<li>运行以下命令，查看PHP版本。<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo php -v</span><br></pre></td></tr></table></figure>
+返回结果如下所示，查看到PHP版本为7.4.3。同时也表示PHP已成功安装。<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">PHP 7.4.3 (cli) (built: Nov 25 2021 23:16:22) ( NTS )</span><br><span class="line"></span><br><span class="line">Copyright (c) The PHP Group</span><br><span class="line">Zend Engine v3.4.0, Copyright (c) Zend Technologies</span><br><span class="line">    with Zend OPcache v7.4.3, Copyright (c), by Zend Technologies</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="步骤五：配置Nginx"><a href="#步骤五：配置Nginx" class="headerlink" title="步骤五：配置Nginx"></a>步骤五：配置Nginx</h2><ol>
+<li>运行以下命令，修改Nginx默认的配置文件，添加Nginx对PHP的支持。<ul>
+<li>1.1 打开Nginx默认的配置文件。<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/nginx/sites-enabled/default</span><br></pre></td></tr></table></figure></li>
+<li>1.2 按i进入编辑模式，修改Nginx配置文件。<ul>
+<li>1.2.1 在<code>server&#123;&#125;</code>内，找到<code>index</code>开头的配置行，在该行中添加<code>index.php</code>。<br><img src="/images/LNMP-ubuntu-5.1.png"></li>
+<li>1.2.2 在<code>server&#123;&#125;</code>内找到<code>location ~ \.php$ &#123;&#125;</code>，去除以下配置行的注释符号。	  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">location ~ \.php$ &#123;</span><br><span class="line">        include snippets/fastcgi-php.conf;</span><br><span class="line">        fastcgi_pass unix:/var/run/php/php7.4-fpm.sock;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<img src="/images/LNMP-ubuntu-5.2.png"></li>
+<li>1.2.3 按Esc退出编辑模式，然后输入<code>:wq</code>并按<code>Enter</code>键，保存并退出文件。</li>
+</ul>
+</li>
+</ul>
+<p>	  </p>
+</li>
+<li>运行以下命令，重启Nginx服务。<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl restart nginx.service</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="步骤六：配置MySQL"><a href="#步骤六：配置MySQL" class="headerlink" title="步骤六：配置MySQL"></a>步骤六：配置MySQL</h2><ol>
+<li><p>运行以下命令，对MySQL进行安全性配置。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mysql_secure_installation</span><br></pre></td></tr></table></figure></li>
+<li><p>根据命令行提示，依次完成以下配置项。</p>
+<ul>
+<li>2.1 输入<code>Y</code>使用MySQL自带的密码安全校验工具。<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">VALIDATE PASSWORD COMPONENT can be used to test passwords</span><br><span class="line">and improve security. It checks the strength of password</span><br><span class="line">and allows the users to set only those passwords which are</span><br><span class="line">secure enough. Would you like to setup VALIDATE PASSWORD component?</span><br><span class="line"></span><br><span class="line">Press y|Y for Yes, any other key for No: Y</span><br></pre></td></tr></table></figure></li>
+<li>2.2 设置密码强度。<br>本教程中，输入<code>1</code>使用较安全的MEDIUM等级。您可以根据实际业务需求选择适用的密码强度，建议您使用较高的密码强度，增强对数据安全的保护。<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">There are three levels of password validation policy:</span><br><span class="line"></span><br><span class="line">LOW    Length &gt;= 8</span><br><span class="line">MEDIUM Length &gt;= 8, numeric, mixed case, and special characters</span><br><span class="line">STRONG Length &gt;= 8, numeric, mixed case, special characters and dictionary                  file</span><br><span class="line"></span><br><span class="line">Please enter 0 = LOW, 1 = MEDIUM and 2 = STRONG: 1</span><br></pre></td></tr></table></figure></li>
+<li>2.3 设置MySQL的密码。  <blockquote>
+<p>说明 在输入密码时，系统为了最大限度的保证数据安全，命令行将不做任何回显。您只需要输入正确的密码信息，然后按<code>Enter</code>键即可。</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Please set the password for root here.</span><br><span class="line"></span><br><span class="line">New password:</span><br><span class="line"></span><br><span class="line">Re-enter new password:</span><br><span class="line"></span><br><span class="line">Estimated strength of the password: 100</span><br></pre></td></tr></table></figure></li>
+<li>2.4 输入<code>Y</code>确认使用已设置的密码。<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Do you wish to continue with the password provided?(Press y|Y for Yes, any other key for No) : Y</span><br></pre></td></tr></table></figure></li>
+<li>2.5 输入<code>Y</code>删除MySQL自带的匿名用户。<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">By default, a MySQL installation has an anonymous user,</span><br><span class="line">allowing anyone to log into MySQL without having to have</span><br><span class="line">a user account created for them. This is intended only for</span><br><span class="line">testing, and to make the installation go a bit smoother.</span><br><span class="line">You should remove them before moving into a production</span><br><span class="line">environment.</span><br><span class="line"></span><br><span class="line">Remove anonymous users? (Press y|Y for Yes, any other key for No) : Y</span><br></pre></td></tr></table></figure></li>
+<li>2.6 输入<code>Y</code>禁止MySQL的root用户的远程登录权限。  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Normally, root should only be allowed to connect from</span><br><span class="line">&#x27;localhost&#x27;. This ensures that someone cannot guess at</span><br><span class="line">the root password from the network.</span><br><span class="line"></span><br><span class="line">Disallow root login remotely? (Press y|Y for Yes, any other key for No) : Y</span><br></pre></td></tr></table></figure></li>
+<li>2.7 输入<code>Y</code>删除MySQL中test库以及用户对test库的访问权限。  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">By default, MySQL comes with a database named &#x27;test&#x27; that</span><br><span class="line">anyone can access. This is also intended only for testing,</span><br><span class="line">and should be removed before moving into a production</span><br><span class="line">environment.</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Remove test database and access to it? (Press y|Y for Yes, any other key for No) : Y</span><br></pre></td></tr></table></figure></li>
+<li>2.8 输入<code>Y</code>重新加载授权表。<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Reloading the privilege tables will ensure that all changes</span><br><span class="line">made so far will take effect immediately.</span><br><span class="line"></span><br><span class="line">Reload privilege tables now? (Press y|Y for Yes, any other key for No) : Y</span><br></pre></td></tr></table></figure>
+当命令行回显<code>All done!</code>时，表示配置完成。</li>
+</ul>
+</li>
+<li><p>测试登录MySQL数据库。</p>
+<ul>
+<li>3.1 运行以下命令，登录MySQL数据库。<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mysql -uroot -p</span><br></pre></td></tr></table></figure></li>
+<li>3.2 在命令行回显的<code>Enter password:</code>后输入已设置的数据库密码。<blockquote>
+<p>说明 在输入密码时，系统为了最大限度的保证数据安全，命令行将不做任何回显。您只需要输入正确的密码信息，然后按<code>Enter</code>键即可。</p>
+</blockquote>
+</li>
+</ul>
+<p> 成功登录MySQL数据库后，命令行信息如下图所示：</p>
+</li>
+</ol>
+<p><img src="/images/LNMP-ubuntu-6.1.png"></p>
+<ul>
+<li>3.3 运行以下命令，退出MySQL数据库。<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exit;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="步骤七：配置PHP"><a href="#步骤七：配置PHP" class="headerlink" title="步骤七：配置PHP"></a>步骤七：配置PHP</h2><ol>
+<li>运行以下命令，在Nginx网站根目录中，新建<code>phpinfo.php</code>文件。<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vi.&lt;网站根目录&gt;/phpinfo.php</span><br></pre></td></tr></table></figure>
+&lt;网站根目录&gt;为变量，可通过Nginx配置文件查看。本教程中Nginx配置文件为默认文件<code>/etc/nginx/sites-enabled/default</code>，您可以运行<code>cat /etc/nginx/sites-enabled/default</code>命令查看文件内容，其中如下图所示的<code>/var/www/html</code>部分即为网站根目录。<br><img src="/images/LNMP-ubuntu-7.1.png"><br>因此，对应的运行命令为：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vi./var/www/html/phpinfo.php</span><br></pre></td></tr></table></figure></li>
+<li>按i进入编辑模式，添加以下配置信息。<br><code>phpinfo()</code>函数会展示PHP的所有配置信息。<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php echo phpinfo(); ?&gt;</span><br></pre></td></tr></table></figure></li>
+<li>按Esc退出编辑模式，然后输入<code>:wq</code>并按<code>Enter</code>键，保存并退出文件。</li>
+<li>运行以下命令，启动PHP。<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl start php7.4-fpm</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="步骤八：测试访问PHP配置信息页面"><a href="#步骤八：测试访问PHP配置信息页面" class="headerlink" title="步骤八：测试访问PHP配置信息页面"></a>步骤八：测试访问PHP配置信息页面</h2><ol>
+<li>在本地Windows主机或其他具有公网访问能力的Windows主机中，打开浏览器。</li>
+<li>在浏览器的地址栏输入<code>http://&lt;ECS实例公网IP地址&gt;/phpinfo.php进行访问。</code><br>访问结果如下图所示，成功查看到PHP配置信息页面，表示LNMP环境部署成功。<br><img src="/images/LNMP-ubuntu-8.1.png"></li>
+</ol>
+<h2 id="后续步骤"><a href="#后续步骤" class="headerlink" title="后续步骤"></a>后续步骤</h2><p>成功搭建LNMP环境后，建议您删除<code>phpinfo.php</code>测试文件，消除数据泄露风险。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -rf &lt;网站根目录&gt;/phpinfo.php</span><br></pre></td></tr></table></figure>
+<p>本教程中网站根目录为<code>/var/www/html</code>，则需要运行以下命令删除测试文件。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -rf /var/www/html/phpinfo.php</span><br></pre></td></tr></table></figure>
+      </div>
+      
+      
+      
+    </div>
+
+    
+    
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Bystander</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>
